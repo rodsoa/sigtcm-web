@@ -1,19 +1,23 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
 
-import { Container, MainLogin, FooterLogin } from './styles';
-import Background from '../../components/Background/Background';
-import { TCMView } from '../../styles';
-import logo from '../../assets/logo.png';
+import { Container, MainLogin } from './styles';
+import Background from '~/components/Background';
+import Button from '~/components/Button';
+import Footer from '~/components/Footer';
+import { TCMView } from '~/styles';
+import logo from '~/assets/logo.png';
 
 export default function SignIn() {
+  const [loading, setLoading] = useState(false);
+
   const renderLogin = () => (
     <Container>
       <TCMView mVertical={32} display="flex">
-        <img style={{ height: 128 }} src={logo} />
+        <img style={{ height: 180 }} src={logo} />
       </TCMView>
       <MainLogin>
         <Form>
@@ -23,15 +27,19 @@ export default function SignIn() {
           </TCMView>
         </Form>
       </MainLogin>
-      <FooterLogin>
-        <button type="button">Entrar</button>
-        <TCMView display="flex" row justify="space-between" width="100%">
-          <Link href="#">Esqueci minha senha</Link>
-          <Link href="#">Cadastre-se</Link>
-        </TCMView>
-      </FooterLogin>
+      <Footer>
+        <>
+          <TCMView mVertical={8} width="100%">
+            <Button title="Entrar" loading={loading} />
+          </TCMView>
+          <TCMView display="flex" row justify="space-between" width="100%">
+            <Link href="#">Esqueci minha senha</Link>
+            <Link href="#">Cadastre-se</Link>
+          </TCMView>
+        </>
+      </Footer>
     </Container>
   );
 
-  return <Background>{renderLogin()}</Background>;
+  return <Background notHeader>{renderLogin()}</Background>;
 }

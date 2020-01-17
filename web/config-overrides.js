@@ -1,7 +1,7 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { addBabelPlugin, override } from 'customize-cra';
+/* eslint-disable import/no-extraneous-dependencies */
+const { addBabelPlugin, override } = require('customize-cra');
 
-export default override(
+module.exports = override(
   addBabelPlugin([
     'babel-plugin-root-import',
     {

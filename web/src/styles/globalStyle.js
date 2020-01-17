@@ -18,10 +18,10 @@ export default createGlobalStyle`
   }
 
   html, body, #root {
-    height: 100%;
+    min-height: 100%;
   }
   body {
-    background-image: linear-gradient(180deg, #fff 0%, #98AECF 100%);
+    background: linear-gradient(180deg, #fff 0%, #98AECF 100%);
     -webkit-font-smoothing: antialiased;
   }
   body, input, button {
