@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
+import history from '~/services/history';
 
 import { Container, MainLogin } from './styles';
 import Background from '~/components/Background';
@@ -13,6 +14,9 @@ import logo from '~/assets/logo.png';
 
 export default function SignIn() {
   const [loading, setLoading] = useState(false);
+  const handleClick = () => {
+    history.push(`/dashboard`);
+  };
 
   const renderLogin = () => (
     <Container>
@@ -30,7 +34,7 @@ export default function SignIn() {
       <Footer>
         <>
           <TCMView mVertical={8} width="100%">
-            <Button title="Entrar" loading={loading} />
+            <Button title="Entrar" onClick={handleClick} loading={loading} />
           </TCMView>
           <TCMView display="flex" row justify="space-between" width="100%">
             <Link href="#">Esqueci minha senha</Link>

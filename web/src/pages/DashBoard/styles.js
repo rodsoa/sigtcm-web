@@ -10,13 +10,17 @@ export const Container = styled.div`
   background-color: #98c0e2;
   padding: 64px;
 
+  @media (max-width: 900px) {
+    padding: 32px;
+  }
+
   div {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 16px;
+    padding: 8px 16px;
 
     button {
       font-size: 24px;
@@ -26,22 +30,32 @@ export const Container = styled.div`
 `;
 
 export const ListButtons = styled.ul`
-  display: grid;
-  grid-template-columns: 6fr 6fr;
-  grid-gap: 1px;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
 
   li {
-    button {
+    width: 100%;
+    .rowTwoButtons {
       display: flex;
+      flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 8px;
 
-      border: none;
-      height: 100%;
-      width: 305%;
-      font-size: 24px;
-      font-weight: bold;
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        height: 100px;
+        width: 50%;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 8px 8px 0;
+      }
     }
   }
 `;
@@ -49,7 +63,6 @@ export const ListButtons = styled.ul`
 export const Shadow = styled.div`
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex: 1;
   flex-direction: column;
   width: 100%;
   border-radius: 6px;

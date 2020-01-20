@@ -4,44 +4,57 @@ export const dashboardOptions = [
   //   title: 'Atendimento',
   //   route: 'Service',
   // },
+
   {
-    name: 'HEADOFFICE',
-    title: 'Matriz',
-    route: 'HeadOffice',
+    id: 1,
+    firstBt: {
+      name: 'MATRIX',
+      title: 'Matriz',
+      route: 'matrix',
+    },
+    secondBt: {
+      name: 'UNITS',
+      title: 'Unidades',
+      route: 'units',
+    },
   },
   {
-    name: 'UNITS',
-    title: 'Unidades',
-    route: 'Units',
+    id: 2,
+    firstBt: {
+      name: 'TEAM',
+      title: 'Equipe',
+      route: 'team',
+    },
+    secondBt: {
+      name: 'CUSTOMERS',
+      title: 'Clientes',
+      route: 'customers',
+    },
   },
   {
-    name: 'TEAM',
-    title: 'Equipe',
-    route: 'Team',
+    id: 3,
+    firstBt: {
+      name: 'TREATMENTS',
+      title: 'Tratamentos',
+      route: 'treatments',
+    },
+    secondBt: {
+      name: 'PROTCOLS',
+      title: 'Protocolos',
+      route: 'protocols',
+    },
   },
   {
-    name: 'CUSTOMERS',
-    title: 'Clientes',
-    route: 'Customers',
-  },
-  {
-    name: 'TREATMENTS',
-    title: 'Tratamentos',
-    route: 'Treatments',
-  },
-  {
-    name: 'PROTCOLS',
-    title: 'Protocolos',
-    route: 'Protocols',
-  },
-  {
-    name: 'TERMS',
-    title: 'Termos',
-    route: 'Terms',
-  },
-  {
-    name: 'Reporting',
-    title: 'Relatórios',
-    route: 'Reporting',
+    id: 4,
+    firstBt: {
+      name: 'TERMS',
+      title: 'Termos',
+      route: 'terms',
+    },
+    secondBt: {
+      name: 'REPORTING',
+      title: 'Relatórios',
+      route: 'reporting',
+    },
   },
 ];

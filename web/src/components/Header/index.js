@@ -15,7 +15,7 @@ export default function Header({ title }) {
         flex={1}
         width="100%"
       >
-        <h1>{title}</h1>
+        <h1>{String(title).toUpperCase()}</h1>
       </TCMView>
       <TCMView width={50} pad={32} height={64} />
     </TCMHeader>

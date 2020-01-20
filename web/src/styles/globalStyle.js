@@ -16,10 +16,17 @@ export default createGlobalStyle`
   html {
       font-size: 62.5%;
   }
-
-  html, body, #root {
-    min-height: 100%;
+  html {
+    min-height: 100% !important;
   }
+
+  #root {
+    position: fixed;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+  }
+
   body {
     background: linear-gradient(180deg, #fff 0%, #98AECF 100%);
     -webkit-font-smoothing: antialiased;

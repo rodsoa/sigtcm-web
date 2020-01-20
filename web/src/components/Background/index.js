@@ -5,10 +5,15 @@ import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
-export default function Background({ children }) {
-  return <Container>{children}</Container>;
+export default function Background({ children, mTop }) {
+  return <Container style={{ marginTop: mTop }}>{children}</Container>;
 }
 
 Background.propTypes = {
   children: PropTypes.element.isRequired,
+  mTop: PropTypes.number,
+};
+
+Background.defaultProps = {
+  mTop: 0,
 };
