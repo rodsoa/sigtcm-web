@@ -10,14 +10,15 @@ import Footer from '~/components/Footer';
 import { TCMView } from '~/styles';
 import history from '~/services/history';
 
-export default function Treatments() {
+export default function ProfileMatrix() {
   const addNewTreatment = () => {
     history.push('/newtreatment');
   };
 
-  const renderButtonAdd = () => (
-    <div className="Add">
+  const renderButtons = () => (
+    <div className="Buttons">
       <Button height={64} onClick={addNewTreatment} title="Adicionar +" />
+      <Button height={64} onClick={addNewTreatment} title="Relatórios" />
     </div>
   );
 
@@ -34,31 +35,52 @@ export default function Treatments() {
       <table>
         <thead>
           <tr>
-            <th>Cód</th>
-            <th>Título</th>
-            <th>Preço base</th>
+            <th>
+              <strong>ID</strong>
+            </th>
+            <th>
+              <strong>Matriz</strong>
+            </th>
+            <th>
+              <strong>Início</strong>
+            </th>
+            <th>
+              <strong>UN.</strong>
+            </th>
+            <th>
+              <strong>UN. Ativas</strong>
+            </th>
+            <th>
+              <strong>Faturamento/mês</strong>
+            </th>
             <th>Ação</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>0001</td>
-            <td>Fotodepilação</td>
-            <td>80,00</td>
+            <td>Nome Matriz</td>
+            <td>04/12/2019</td>
+            <td>25</td>
+            <td>12</td>
+            <td>R$ 125.540,00</td>
             <td>
               <button type="button">Editar</button>
               <button type="button">Excluir</button>
-              <button type="button">Pacotes</button>
+              <button type="button">UN</button>
             </td>
           </tr>
           <tr>
             <td>0001</td>
-            <td>Fotodepilação</td>
-            <td>80,00</td>
+            <td>Nome Matriz</td>
+            <td>04/12/2019</td>
+            <td>25</td>
+            <td>12</td>
+            <td>R$ 125.540,00</td>
             <td>
               <button type="button">Editar</button>
               <button type="button">Excluir</button>
-              <button type="button">Pacotes</button>
+              <button type="button">UN</button>
             </td>
           </tr>
         </tbody>
@@ -69,9 +91,9 @@ export default function Treatments() {
   return (
     <Background>
       <Shadow>
-        <Header title="Tratamentos" />
+        <Header title="Perfil Matriz" />
         <Container>
-          {renderButtonAdd()}
+          {renderButtons()}
           {renderSearch()}
           {renderTableTreatments()}
         </Container>

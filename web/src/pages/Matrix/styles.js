@@ -14,17 +14,20 @@ export const Container = styled.div`
     padding: 32px;
   }
 
-  div.Add {
+  div.Buttons {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    width: 70%;
-    padding: 8px 16px;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 12px;
 
     button {
       font-size: 24px;
       font-weight: bold;
+    }
+    button:nth-of-type(1) {
+      margin-right: 16px;
     }
   }
 
@@ -42,9 +45,7 @@ export const Container = styled.div`
         padding: 0 15px;
         margin: 0 0 16px;
       }
-      input:nth-last-of-type(1) {
-        margin: 0;
-      }
+
       &::placeholder {
         color: rgba(255, 255, 255, 0.8);
       }

@@ -14,22 +14,17 @@ export const Container = styled.div`
     padding: 32px;
   }
 
-  div.Add {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 70%;
-    padding: 8px 16px;
+  div.renderCod {
+    width: 90%;
+    margin: 8px 0;
 
-    button {
-      font-size: 24px;
-      font-weight: bold;
+    span {
+      font-size: 2.4rem;
     }
   }
 
-  div.search {
-    width: 100%;
+  div.Inputs {
+    width: 90%;
     margin: 4px 0;
     form {
       display: flex;
@@ -42,9 +37,7 @@ export const Container = styled.div`
         padding: 0 15px;
         margin: 0 0 16px;
       }
-      input:nth-last-of-type(1) {
-        margin: 0;
-      }
+
       &::placeholder {
         color: rgba(255, 255, 255, 0.8);
       }
@@ -60,50 +53,55 @@ export const Container = styled.div`
   div.table {
     width: 100%;
 
+    div {
+      width: 100%;
+      padding: 0 calc(5% + 16px);
+      margin: 8px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      span {
+        font-size: 2.4rem;
+      }
+      a {
+        font-size: 2.4rem;
+      }
+    }
+
     table {
       width: 100%;
       border-spacing: 0;
       border-collapse: collapse;
       thead {
-        background: #fff;
-        border: 8px solid #fff;
+        background: #444;
         tr {
           margin: 0;
           th {
-            padding: 16px 8px;
+            padding: 8px 8px 2px;
             margin: 0;
             font-size: 1.8rem;
             font-weight: 400;
+            color: #fff;
           }
         }
       }
       tbody {
-        background: #eee;
+        background: #fff;
         width: 100%;
-        border: 8px solid #eee;
         tr {
-          margin: 16px;
+          margin: 8px;
           td {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
             text-align: center;
             padding: 8px;
             margin: 0 !important;
-
-            button {
-              border: none;
-              background: none;
-              color: blue;
-              margin-right: 4px;
-            }
           }
           .lineBottom {
             height: 1px;
             width: 100%;
             background: #2b2b2b;
           }
-        }
-        tr:nth-last-of-type(1) td {
-          border-bottom: none;
         }
       }
     }
