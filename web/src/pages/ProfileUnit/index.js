@@ -10,19 +10,37 @@ import Footer from '~/components/Footer';
 import { TCMView } from '~/styles';
 import history from '~/services/history';
 
-export default function ProfileMatrix() {
+export default function ProfileUnit() {
   const addNewTreatment = () => {
     history.push('/newtreatment');
   };
   const renderCheckBox = () => (
     <TCMView
       padHorizontal={16}
+      padVertical={8}
       display="flex"
       row
       align="center"
-      justify="flex-end"
+      justify="space-between"
       width="100%"
+      bgColor="#fff"
     >
+      <TCMView
+        display="flex"
+        row
+        flex={1}
+        align="center"
+        justify="space-between"
+      >
+        <span style={{ width: '50%', color: '#3d5ba8' }}>
+          Nome:
+          <strong> Nome da Matriz</strong>
+        </span>
+        <span style={{ width: '50%', color: '#3d5ba8' }}>
+          Cód:
+          <strong> 0007</strong>
+        </span>
+      </TCMView>
       <form>
         Desativar <input type="checkbox" />
       </form>
@@ -188,7 +206,7 @@ export default function ProfileMatrix() {
   return (
     <Background>
       <Shadow>
-        <Header title="Perfil Matriz" />
+        <Header title="Perfil Unidade" />
         <Container>
           {renderCheckBox()}
           <TCMView className="renderLabels" flex={1} row>
@@ -209,6 +227,7 @@ export default function ProfileMatrix() {
             justify="space-between"
           >
             <Link to="/dashboard">Voltar</Link>
+            <Link to="/">Editar</Link>
             <Link to="/">Sair</Link>
           </TCMView>
         </Footer>

@@ -10,19 +10,37 @@ import Footer from '~/components/Footer';
 import { TCMView } from '~/styles';
 import history from '~/services/history';
 
-export default function ProfileMatrix() {
+export default function ProfileEmployee() {
   const addNewTreatment = () => {
     history.push('/newtreatment');
   };
   const renderCheckBox = () => (
     <TCMView
       padHorizontal={16}
+      padVertical={8}
       display="flex"
       row
       align="center"
-      justify="flex-end"
+      justify="space-between"
       width="100%"
+      bgColor="#fff"
     >
+      <TCMView
+        display="flex"
+        row
+        flex={1}
+        align="center"
+        justify="space-between"
+      >
+        <span style={{ width: '50%', color: '#3d5ba8' }}>
+          Nome:
+          <strong> Nome da Matriz</strong>
+        </span>
+        <span style={{ width: '50%', color: '#3d5ba8' }}>
+          Cód:
+          <strong> 0007</strong>
+        </span>
+      </TCMView>
       <form>
         Desativar <input type="checkbox" />
       </form>
@@ -110,85 +128,10 @@ export default function ProfileMatrix() {
     </div>
   );
 
-  const renderButtons = () => (
-    <div className="Buttons">
-      <Button height={64} onClick={addNewTreatment} title="Adicionar +" />
-      <Button height={64} title="Relatórios" />
-    </div>
-  );
-
-  const renderSearch = () => (
-    <div className="search">
-      <Form>
-        <Input name="search" type="text" placeholder="Buscar...." />
-      </Form>
-    </div>
-  );
-
-  const renderTableMatrix = () => (
-    <div className="table">
-      <table>
-        <thead>
-          <tr>
-            <th>
-              <strong>ID</strong>
-            </th>
-            <th>
-              <strong>Unidade</strong>
-            </th>
-            <th>
-              <strong>Início</strong>
-            </th>
-            <th>
-              <strong>Clientes</strong>
-            </th>
-            <th>
-              <strong>Atendimentos</strong>
-            </th>
-            <th>
-              <strong>Faturamento/mês</strong>
-            </th>
-            <th>
-              <strong>Ticket</strong>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>0001</td>
-            <td>Nome Matriz</td>
-            <td>04/12/2019</td>
-            <td>25</td>
-            <td>12</td>
-            <td>R$ 125.540,00</td>
-            <td>
-              <button type="button">Editar</button>
-              <button type="button">Excluir</button>
-              <button type="button">UN</button>
-            </td>
-          </tr>
-          <tr>
-            <td>0001</td>
-            <td>Nome Matriz</td>
-            <td>04/12/2019</td>
-            <td>25</td>
-            <td>12</td>
-            <td>R$ 125.540,00</td>
-            <td>
-              <button type="button">Editar</button>
-              <button type="button">Excluir</button>
-              <button type="button">UN</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  );
-
   return (
     <Background>
       <Shadow>
-        <Header title="Perfil Matriz" />
+        <Header title="Perfil Unidade" />
         <Container>
           {renderCheckBox()}
           <TCMView className="renderLabels" flex={1} row>
@@ -196,9 +139,6 @@ export default function ProfileMatrix() {
             {renderAddressToPhone()}
           </TCMView>
           {renderTableContacts()}
-          {renderButtons()}
-          {renderSearch()}
-          {renderTableMatrix()}
         </Container>
         <Footer>
           <TCMView
@@ -209,6 +149,7 @@ export default function ProfileMatrix() {
             justify="space-between"
           >
             <Link to="/dashboard">Voltar</Link>
+            <Link to="/">Editar</Link>
             <Link to="/">Sair</Link>
           </TCMView>
         </Footer>
