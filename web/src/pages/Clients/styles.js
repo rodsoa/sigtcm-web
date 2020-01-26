@@ -8,133 +8,29 @@ export const Container = styled.div`
   justify-content: center;
   width: 100%;
   background-color: #98c0e2;
-  padding: 32px 64px 64px;
+  padding: 64px;
 
   @media (max-width: 900px) {
     padding: 32px;
   }
 
-  div.renderLabels {
-    width: 100%;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #fff;
-    margin: 16px 0;
-    box-shadow: 0.1rem 0.3rem 0.1rem -0.2rem rgba(0, 0, 0, 0.2);
-
-    .labels {
-      display: flex;
-      flex-direction: column;
-
-      width: 100%;
-      padding: 8px;
-
-      span {
-        font-size: 1.6rem;
-        margin: 8px 0;
-        margin-right: 16px;
-        max-lines: 1;
-
-        strong {
-          max-lines: 1;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-      }
-    }
-  }
-
-  div.tableContacts {
-    width: 100%;
-    margin-bottom: 16px;
-    div {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      margin: 8px 0;
-      align-items: center;
-      justify-content: space-between;
-      span {
-        font-size: 2rem;
-        flex: 1;
-        text-align: right;
-      }
-      div {
-        flex: 1;
-        a {
-          font-size: 2rem;
-        }
-      }
-    }
-
-    table {
-      width: 100%;
-      border-spacing: 0;
-      border-collapse: collapse;
-      thead {
-        background: #444;
-        tr {
-          margin: 0;
-          th {
-            padding: 8px 8px 2px;
-            margin: 0;
-            font-size: 1.8rem;
-            font-weight: 400;
-            color: #fff;
-          }
-        }
-      }
-      tbody {
-        background: #fff;
-        width: 100%;
-        tr {
-          margin: 8px;
-          td {
-            text-align: center;
-            padding: 8px;
-            margin: 0 !important;
-          }
-          .lineBottom {
-            height: 1px;
-            width: 100%;
-            background: #2b2b2b;
-          }
-        }
-      }
-    }
-  }
-
-  div.Buttons {
+  div.Add {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 12px;
+    justify-content: center;
+    width: 70%;
+    padding: 8px 16px;
 
     button {
       font-size: 24px;
       font-weight: bold;
-    }
-    button:nth-of-type(1) {
-      margin-right: 16px;
     }
   }
 
   div.search {
     width: 100%;
     margin: 4px 0;
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
-
-    strong {
-      margin: 0 16px;
-      font-size: 2rem;
-      font-weight: normal;
-    }
-
     form {
       display: flex;
       flex-direction: column;
@@ -146,7 +42,9 @@ export const Container = styled.div`
         padding: 0 15px;
         margin: 0 0 16px;
       }
-
+      input:nth-last-of-type(1) {
+        margin: 0;
+      }
       &::placeholder {
         color: rgba(255, 255, 255, 0.8);
       }

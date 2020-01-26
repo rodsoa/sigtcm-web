@@ -9,6 +9,7 @@ import Service from '~/pages/Service';
 import Suggestions from '~/pages/Suggestions';
 
 import Treatments from '~/pages/Treatments';
+import Clients from '~/pages/Clients';
 import NewTreatment from '~/pages/NewTreatment';
 import Matrix from '~/pages/Matrix';
 import NewMatrix from '~/pages/NewMatrix';
@@ -28,6 +29,7 @@ export default function Routes() {
       <Route path="/service" component={Service} />
       <Route path="/suggestions" component={Suggestions} />
       <Route path="/treatments" component={Treatments} />
+      <Route path="/clients" component={Clients} />
       <Route path="/newtreatment" component={NewTreatment} />
       <Route path="/matrix" component={Matrix} />
       <Route path="/profilematrix" component={ProfileMatrix} />
