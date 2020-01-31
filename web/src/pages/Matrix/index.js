@@ -12,7 +12,7 @@ import history from '~/services/history';
 
 export default function Matrix() {
   const addNewTreatment = () => {
-    history.push('/newtreatment');
+    history.push('/newmatrix');
   };
 
   const renderButtons = () => (

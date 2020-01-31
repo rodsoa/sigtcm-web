@@ -11,7 +11,7 @@ import Footer from '~/components/Footer';
 import { TCMView } from '~/styles';
 // import history from '~/services/history';
 
-export default function ProfileEmployee() {
+export default function ProfileClient() {
   const employee = {
     cod: '0001',
     start: '2019/09/04',
@@ -73,33 +73,6 @@ export default function ProfileEmployee() {
           Desativar <input type="checkbox" />
         </form>
       </TCMView>
-      <TCMView
-        padHorizontal={16}
-        padVertical={8}
-        display="flex"
-        row
-        align="center"
-        justify="space-between"
-        width="100%"
-        bgColor="#fff"
-      >
-        <span style={{ color: '#3d5ba8' }}>
-          Matriz:
-          <strong style={{ marginLeft: 4 }}> {employee.matrix}</strong>
-        </span>
-        <span style={{ color: '#3d5ba8' }}>
-          Cód:
-          <strong style={{ marginLeft: 4 }}> {employee.codMatrix}</strong>
-        </span>
-        <span style={{ color: '#3d5ba8' }}>
-          Unidade:
-          <strong style={{ marginLeft: 4 }}> {employee.unit}</strong>
-        </span>
-        <span style={{ color: '#3d5ba8' }}>
-          Cód:
-          <strong style={{ marginLeft: 4 }}> {employee.codUnit}</strong>
-        </span>
-      </TCMView>
     </>
   );
 
@@ -121,9 +94,6 @@ export default function ProfileEmployee() {
       </span>
       <span>
         CPF: <strong>{employee.cpf}</strong>
-      </span>
-      <span>
-        RG: <strong>{employee.rg}</strong>
       </span>
     </div>
   );
@@ -152,9 +122,35 @@ export default function ProfileEmployee() {
     </div>
   );
 
+  const renderDescription = () => (
+    <div className="description">
+      <TCMView
+        display="flex"
+        width="100%"
+        padRight={16}
+        row
+        justify="space-between"
+      >
+        <div>
+          <button type="button">Fototipo</button>
+          <button type="button">Galeria de Fotos</button>
+        </div>
+        <button type="button">Cam</button>
+      </TCMView>
+      <Form>
+        <Input
+          name="description"
+          type="text"
+          multiline
+          placeholder="Observações"
+        />
+      </Form>
+    </div>
+  );
+
   const renderSearch = () => (
     <div className="search">
-      <strong>ATENDIMENTOS</strong>
+      <strong>PROCEDIMENTOS</strong>
       <Form>
         <Input name="search" type="text" placeholder="Buscar...." />
       </Form>
@@ -201,13 +197,14 @@ export default function ProfileEmployee() {
   return (
     <Background>
       <Shadow>
-        <Header title="Perfil Funcionário" />
+        <Header title="Perfil Cliente" />
         <Container>
           {renderCheckBox()}
           <TCMView className="renderLabels" flex={1} row>
             {renderCodToCNPJ()}
             {renderAddressToPhone()}
           </TCMView>
+          {renderDescription()}
           {renderSearch()}
           {renderTableContacts()}
         </Container>

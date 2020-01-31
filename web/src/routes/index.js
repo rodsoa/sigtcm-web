@@ -19,6 +19,7 @@ import NewClient from '~/pages/NewClient';
 import ProfileMatrix from '~/pages/ProfileMatrix';
 import ProfileUnit from '~/pages/ProfileUnit';
 import ProfileEmployee from '~/pages/ProfileEmployee';
+import ProfileClient from '~/pages/ProfileClient';
 
 export default function Routes() {
   return (
@@ -35,6 +36,7 @@ export default function Routes() {
       <Route path="/profilematrix" component={ProfileMatrix} />
       <Route path="/profileunit" component={ProfileUnit} />
       <Route path="/profileemployee" component={ProfileEmployee} />
+      <Route path="/profileclient" component={ProfileClient} />
       <Route path="/newmatrix" component={NewMatrix} />
       <Route path="/newunit" component={NewUnit} />
       <Route path="/newemployee" component={NewEmployee} />

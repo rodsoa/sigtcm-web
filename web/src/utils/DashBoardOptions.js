@@ -15,7 +15,7 @@ export const dashboardOptions = [
     secondBt: {
       name: 'UNITS',
       title: 'Unidades',
-      route: 'units',
+      route: 'newunit',
     },
   },
   {
