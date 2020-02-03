@@ -137,6 +137,14 @@ export const Container = styled.div`
       align-items: center;
       flex-direction: row;
       justify-content: space-between;
+      button.cam {
+        border: none;
+        padding: 4px 8px;
+        border-radius: 4px;
+        background: #3d5ba8;
+        color: #fff;
+        font-size: 2.4rem;
+      }
       div {
         button {
           border: none;
@@ -146,6 +154,7 @@ export const Container = styled.div`
           margin: 8px 8px 8px 0;
           padding: 4px 16px;
         }
+
         button:nth-of-type(1) {
           border-right: 1px solid #fff;
         }

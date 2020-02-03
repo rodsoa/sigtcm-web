@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import React from 'react';
 
 import { Link } from 'react-router-dom';
@@ -135,7 +136,9 @@ export default function ProfileClient() {
           <button type="button">Fototipo</button>
           <button type="button">Galeria de Fotos</button>
         </div>
-        <button type="button">Cam</button>
+        <button className="cam" type="button">
+          <i class="fa fa-camera" />
+        </button>
       </TCMView>
       <Form>
         <Input
