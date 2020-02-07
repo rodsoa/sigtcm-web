@@ -8,6 +8,7 @@ import SignUp from '~/pages/SignUp';
 import DashBoard from '~/pages/DashBoard';
 import Service from '~/pages/Service';
 import Suggestions from '~/pages/Suggestions';
+import PhotoType from '~/pages/PhotoType';
 
 import Treatments from '~/pages/Treatments';
 import Clients from '~/pages/Clients';
@@ -23,6 +24,8 @@ import NewMatrix from '~/pages/NewMatrix';
 import NewUnit from '~/pages/NewUnit';
 import NewEmployee from '~/pages/NewEmployee';
 import NewClient from '~/pages/NewClient';
+import NewSale from '~/pages/NewSale';
+import NewSession from '~/pages/NewSession';
 
 export default function Routes() {
   return (
@@ -33,6 +36,7 @@ export default function Routes() {
       <Route path="/dashboard" component={DashBoard} />
       <Route path="/service" component={Service} />
       <Route path="/suggestions" component={Suggestions} />
+      <Route path="/phototype" component={PhotoType} />
 
       <Route path="/treatments" component={Treatments} />
       <Route path="/clients" component={Clients} />
@@ -48,6 +52,8 @@ export default function Routes() {
       <Route path="/newunit" component={NewUnit} />
       <Route path="/newemployee" component={NewEmployee} />
       <Route path="/newclient" component={NewClient} />
+      <Route path="/newsale" component={NewSale} />
+      <Route path="/newsession" component={NewSession} />
 
       <Route path="/" component={() => <h1>404</h1>} />
     </Switch>
