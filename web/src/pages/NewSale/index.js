@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { format } from 'date-fns';
 import { Form, Input } from '@rocketseat/unform';
 import { Container, Shadow } from './styles';
 import Button from '~/components/Button';
@@ -8,7 +7,6 @@ import Background from '~/components/Background';
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
 import { TCMView } from '~/styles';
-import { TCMButton } from '~/styles/buttons';
 
 export default function NewSale() {
   const employeeReport = [
@@ -98,33 +96,23 @@ export default function NewSale() {
 
   const renderTableContacts = () => (
     <div className="tableContacts">
-      <div>
-        <TCMView row align="center" justify="space-between">
-          <Link to="/">Adicionar +</Link>
-          <Link to="/">Editar</Link>
-          <Link to="/">Excluir</Link>
-        </TCMView>
-        <span>
-          <Link to="/">Relatórios</Link>
-        </span>
-      </div>
       <table>
         <thead>
           <tr>
-            <th>Data</th>
-            <th>Cliente</th>
-            <th>Procedimento</th>
+            <th>ID</th>
+            <th>Descrição</th>
             <th>Área</th>
+            <th>Qtde.</th>
             <th>R$</th>
           </tr>
         </thead>
         <tbody>
           {employeeReport.map(el => (
             <tr key={el.id}>
-              <td>{format(new Date(el.date), 'dd/MM/yyyy')}</td>
-              <td>{el.name}</td>
-              <td>{el.Procedure}</td>
+              <td>{el.id || el.cod}</td>
+              <td>{el.name || el.description}</td>
               <td>{el.field}</td>
+              <td>{el.Procedure || el.qtde}</td>
               <td>{String(el.value).replace('.', ',')}</td>
             </tr>
           ))}
@@ -154,11 +142,11 @@ export default function NewSale() {
     <div className="finalsData">
       <div>
         <strong>Cupom</strong>
-        <span>-10%</span>
+        <span className="valDesc">-10%</span>
       </div>
       <div>
         <strong>Desconto</strong>
-        <span>-R$ 150,00</span>
+        <span className="valDesc">-R$ 150,00</span>
       </div>
       <div>
         <strong>Serviços</strong>
@@ -186,7 +174,7 @@ export default function NewSale() {
           {renderSearch()}
           {renderTableContacts()}
           <TCMView width="100%">
-            <TCMView display="flex" flex={1} column>
+            <TCMView display="flex" width="60%" column>
               {renderCouponDesc()}
               {renderDesc()}
             </TCMView>

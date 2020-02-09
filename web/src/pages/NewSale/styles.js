@@ -219,6 +219,11 @@ export const Container = styled.div`
       display: flex;
       align-items: center;
       justify-content: space-between;
+
+      span.valDesc {
+        color: #fb6f91 !important;
+        font-weight: bolder;
+      }
     }
     div:nth-of-type(1) {
       padding: 0px 8px 4px;

@@ -59,6 +59,37 @@ export const Container = styled.div`
     }
   }
 
+  div.renderLabels {
+    width: 100%;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #fff;
+
+    box-shadow: 0.1rem 0.3rem 0.1rem -0.2rem rgba(0, 0, 0, 0.2);
+
+    .labels {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 8px;
+
+      span {
+        font-size: 1.6rem;
+        margin: 8px 0;
+        margin-right: 16px;
+        max-lines: 1;
+
+        strong {
+          max-lines: 1;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
   div.search {
     width: 100%;
     margin: 16px 0;

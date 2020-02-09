@@ -10,6 +10,26 @@ import Footer from '~/components/Footer';
 import { TCMView } from '~/styles';
 
 export default function NewSession() {
+  const employee = {
+    cod: '0001',
+    start: '2019/09/04',
+    name: 'Roberto Silva',
+    birthday: '1994/08/15',
+    cpf: '00012345687',
+    rg: 527895460,
+    address: 'Rua 25 de março, 264 - São Paulo',
+    district: 'Centro',
+    cep: 14527254,
+    city: 'São Paulo',
+    uf: 'SP',
+    phone: 1148259986,
+    email: 'name@mail.com',
+    matrix: 'Nome Matriz',
+    codMatrix: '0005',
+    unit: 'Nome Unidade',
+    codUnit: '0002',
+  };
+
   const employeeReport = [
     {
       id: 1,
@@ -80,18 +100,23 @@ export default function NewSession() {
     </div>
   );
 
-  //   const renderButtonAdd = () => (
-  //     <TCMView className="buttonAdd" width="100%">
-  //       <Button title="Adicionar" />
-  //     </TCMView>
-  //   );
+  const renderCodToCNPJ = () => (
+    <div className="labels">
+      <span>
+        Cód.: <strong>{employee.cod}</strong>
+      </span>
+      <span>
+        Nome: <strong>{employee.name}</strong>
+      </span>
+      <span>
+        CPF: <strong>{employee.cpf}</strong>
+      </span>
+    </div>
+  );
 
   const renderSearch = () => (
     <div className="search">
-      <strong>PROCEDIMENTOS</strong>
-      {/* <Form>
-        <Input name="search" type="text" placeholder="Buscar...." />
-      </Form> */}
+      <strong>PACOTES</strong>
     </div>
   );
 
@@ -101,9 +126,9 @@ export default function NewSession() {
         <thead>
           <tr>
             <th>Data</th>
-            <th>Cliente</th>
-            <th>Procedimento</th>
+            <th>Descrição</th>
             <th>Área</th>
+            <th>Qtde.</th>
             <th>R$</th>
           </tr>
         </thead>
@@ -112,8 +137,8 @@ export default function NewSession() {
             <tr key={el.id}>
               <td>{format(new Date(el.date), 'dd/MM/yyyy')}</td>
               <td>{el.name}</td>
-              <td>{el.Procedure}</td>
               <td>{el.field}</td>
+              <td>{el.Procedure}</td>
               <td>{String(el.value).replace('.', ',')}</td>
             </tr>
           ))}
@@ -122,66 +147,38 @@ export default function NewSession() {
     </div>
   );
 
-  //   const renderCouponDesc = () => (
-  //     <div className="couponDesc">
-  //       <strong>Cupom de desconto: </strong>
-  //       <Input type="text" name="couponDesc" />
-  //     </div>
-  //   );
-
-  //   const renderDesc = () => (
-  //     <div className="Desc">
-  //       <strong>Desconto: </strong>
-  //       <span>-R$</span>
-  //       <Input type="text" name="Desc" />
-  //       <span>%</span>
-  //       <Input type="text" name="DescPorcent" />
-  //     </div>
-  //   );
-
-  //   const renderFinalsData = () => (
-  //     <div className="finalsData">
-  //       <div>
-  //         <strong>Cupom</strong>
-  //         <span>-10%</span>
-  //       </div>
-  //       <div>
-  //         <strong>Desconto</strong>
-  //         <span>-R$ 150,00</span>
-  //       </div>
-  //       <div>
-  //         <strong>Serviços</strong>
-  //         <span>R$ 2790,00</span>
-  //       </div>
-  //     </div>
-  //   );
-
-  //   const renderTotal = () => (
-  //     <div className="total">
-  //       <strong>Total Final</strong>
-  //       <div>
-  //         <strong>R$ 2361,00</strong>
-  //       </div>
-  //     </div>
-  //   );
-
   return (
     <Background>
       <Shadow>
         <Header title="Nova Sessão" />
         <Container>
           {renderDropDownSelect()}
-          {/* {renderButtonAdd()} */}
+
+          <TCMView className="renderLabels" flex={1} row>
+            {renderCodToCNPJ()}
+          </TCMView>
           {renderSearch()}
           {renderTableContacts()}
-          {/* <TCMView width="100%">
-            <TCMView display="flex" flex={1} column>
-              {renderCouponDesc()}
-              {renderDesc()}
-            </TCMView>
-            {renderFinalsData()}
-          </TCMView>
-          {renderTotal()} */}
+
+          <div
+            style={{
+              width: '100%',
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'flex-end',
+              margin: 0,
+            }}
+          >
+            <Link
+              to="/suggestions"
+              style={{
+                fontSize: 24,
+                alignSelf: 'flex-end',
+              }}
+            >
+              + Nova Venda
+            </Link>
+          </div>
         </Container>
         <Footer>
           <TCMView mVertical={8} width="100%">
