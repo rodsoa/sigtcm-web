@@ -10,6 +10,12 @@ export const Container = styled.div`
   margin: 0 16px;
   max-width: 600px;
   margin-bottom: 128px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const MainLogin = styled.div`
@@ -18,25 +24,22 @@ export const MainLogin = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #98c0e2;
-  padding: 64px;
+  padding: 56px;
   width: 100%;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
     input {
+      width: calc(100% - 16px);
       background: #fff;
       border: 0;
       height: 44px;
       padding: 0 15px;
-      margin: 0 0 16px;
+      margin: 8px ;
     }
-    input:nth-last-of-type(1) {
+    /* input:nth-last-of-type(1) {
       margin: 0;
-    }
+    } */
     &::placeholder {
       color: rgba(255, 255, 255, 0.8);
     }
@@ -44,7 +47,7 @@ export const MainLogin = styled.div`
   span {
     color: #fb6f91;
     align-self: flex-start;
-    margin: 0 0 10px;
+    margin: 8px ;
     font-weight: bold;
   }
 
@@ -56,5 +59,5 @@ export const MainLogin = styled.div`
     &:hover {
       opacity: 1;
     }
-  }
+  
 `;

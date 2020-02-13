@@ -7,6 +7,7 @@ import SignUp from '~/pages/SignUp';
 
 import DashBoard from '~/pages/DashBoard';
 import Service from '~/pages/Service';
+import ServiceDetails from '~/pages/ServiceDetails';
 import Suggestions from '~/pages/Suggestions';
 import PhotoType from '~/pages/PhotoType';
 
@@ -35,6 +36,7 @@ export default function Routes() {
 
       <Route path="/dashboard" component={DashBoard} />
       <Route path="/service" component={Service} />
+      <Route path="/servicedetails" component={ServiceDetails} />
       <Route path="/suggestions" component={Suggestions} />
       <Route path="/phototype" component={PhotoType} />
 

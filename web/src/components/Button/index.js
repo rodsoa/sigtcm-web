@@ -9,6 +9,7 @@ export default function Button({
   whiteButton,
   onClick,
   height,
+  type,
 }) {
   const isDisabled = loading || disabled;
 
@@ -18,7 +19,7 @@ export default function Button({
       onClick={onClick}
       whiteButton={whiteButton}
       disabled={isDisabled}
-      type="button"
+      type={type}
     >
       {loading && (
         <i className="fa fa-refresh fa-spin" style={{ marginRight: '5px' }} />
@@ -35,6 +36,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   height: PropTypes.number,
+  type: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -44,4 +46,5 @@ Button.defaultProps = {
   disabled: false,
   onClick: () => {},
   height: 44,
+  type: 'button',
 };
