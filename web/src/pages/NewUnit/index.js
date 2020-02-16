@@ -116,6 +116,7 @@ export default function NewUnit() {
           {renderCod()}
           {renderInputs()}
           {renderTableTreatments()}
+          {renderButtonsEquipAndTreatments()}
         </Container>
         <Footer>
           <TCMView
@@ -126,7 +127,6 @@ export default function NewUnit() {
             align="center"
             padHorizontal={32}
           >
-            {renderButtonsEquipAndTreatments()}
             <TCMView width="100%" padHorizontal={16}>
               {renderButtonAdd()}
             </TCMView>

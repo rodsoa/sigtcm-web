@@ -11,11 +11,13 @@ export const dashboardOptions = [
       name: 'MATRIX',
       title: 'Matriz',
       route: 'matrix',
+      disabledButton: false,
     },
     secondBt: {
       name: 'UNITS',
       title: 'Unidades',
       route: 'newunit',
+      disabledButton: false,
     },
   },
   {
@@ -24,11 +26,13 @@ export const dashboardOptions = [
       name: 'TEAM',
       title: 'Equipe',
       route: 'team',
+      disabledButton: true,
     },
     secondBt: {
-      name: 'CUSTOMERS',
+      name: 'CLIENTS',
       title: 'Clientes',
-      route: 'customers',
+      route: 'clients',
+      disabledButton: false,
     },
   },
   {
@@ -37,11 +41,13 @@ export const dashboardOptions = [
       name: 'TREATMENTS',
       title: 'Tratamentos',
       route: 'treatments',
+      disabledButton: false,
     },
     secondBt: {
       name: 'PROTCOLS',
       title: 'Protocolos',
       route: 'protocols',
+      disabledButton: true,
     },
   },
   {
@@ -50,11 +56,13 @@ export const dashboardOptions = [
       name: 'TERMS',
       title: 'Termos',
       route: 'terms',
+      disabledButton: false,
     },
     secondBt: {
       name: 'REPORTING',
       title: 'Relatórios',
       route: 'reporting',
+      disabledButton: true,
     },
   },
 ];

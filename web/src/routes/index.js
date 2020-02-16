@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-// import Route from './Route';
+import { Switch } from 'react-router-dom';
+// import { Switch, Route } from 'react-router-dom';
+import Route from './Route';
 
 import SignIn from '~/pages/SignIn';
 import SignUp from '~/pages/SignUp';
@@ -10,6 +12,7 @@ import Service from '~/pages/Service';
 import ServiceDetails from '~/pages/ServiceDetails';
 import Suggestions from '~/pages/Suggestions';
 import PhotoType from '~/pages/PhotoType';
+import Terms from '~/pages/Terms';
 
 import Treatments from '~/pages/Treatments';
 import Clients from '~/pages/Clients';
@@ -28,36 +31,93 @@ import NewClient from '~/pages/NewClient';
 import NewSale from '~/pages/NewSale';
 import NewSession from '~/pages/NewSession';
 
-export default function Routes() {
+// import { store } from '~/store';
+
+export default function Routes({ store }) {
   return (
     <Switch>
-      <Route path="/" exact component={SignIn} />
-      <Route path="/signup" component={SignUp} />
+      <Route store={store} path="/" exact component={SignIn} />
+      <Route store={store} path="/signup" component={SignUp} isPrivate />
 
-      <Route path="/dashboard" component={DashBoard} />
-      <Route path="/service" component={Service} />
-      <Route path="/servicedetails" component={ServiceDetails} />
-      <Route path="/suggestions" component={Suggestions} />
-      <Route path="/phototype" component={PhotoType} />
+      <Route store={store} path="/dashboard" component={DashBoard} isPrivate />
+      <Route store={store} path="/service" component={Service} isPrivate />
+      <Route
+        store={store}
+        path="/servicedetails"
+        component={ServiceDetails}
+        isPrivate
+      />
+      <Route
+        store={store}
+        path="/suggestions"
+        component={Suggestions}
+        isPrivate
+      />
+      <Route store={store} path="/phototype" component={PhotoType} isPrivate />
+      <Route store={store} path="/terms" component={Terms} isPrivate />
 
-      <Route path="/treatments" component={Treatments} />
-      <Route path="/clients" component={Clients} />
-      <Route path="/matrix" component={Matrix} />
+      <Route
+        store={store}
+        path="/treatments"
+        component={Treatments}
+        isPrivate
+      />
+      <Route store={store} path="/clients" component={Clients} isPrivate />
+      <Route store={store} path="/matrix" component={Matrix} isPrivate />
 
-      <Route path="/profilematrix" component={ProfileMatrix} />
-      <Route path="/profileunit" component={ProfileUnit} />
-      <Route path="/profileemployee" component={ProfileEmployee} />
-      <Route path="/profileclient" component={ProfileClient} />
+      <Route
+        store={store}
+        path="/profilematrix"
+        component={ProfileMatrix}
+        isPrivate
+      />
+      <Route
+        store={store}
+        path="/profileunit"
+        component={ProfileUnit}
+        isPrivate
+      />
+      <Route
+        store={store}
+        path="/profileemployee"
+        component={ProfileEmployee}
+        isPrivate
+      />
+      <Route
+        store={store}
+        path="/profileclient"
+        component={ProfileClient}
+        isPrivate
+      />
 
-      <Route path="/newtreatment" component={NewTreatment} />
-      <Route path="/newmatrix" component={NewMatrix} />
-      <Route path="/newunit" component={NewUnit} />
-      <Route path="/newemployee" component={NewEmployee} />
-      <Route path="/newclient" component={NewClient} />
-      <Route path="/newsale" component={NewSale} />
-      <Route path="/newsession" component={NewSession} />
+      <Route
+        store={store}
+        path="/newtreatment"
+        component={NewTreatment}
+        isPrivate
+      />
+      <Route store={store} path="/newmatrix" component={NewMatrix} isPrivate />
+      <Route store={store} path="/newunit" component={NewUnit} isPrivate />
+      <Route
+        store={store}
+        path="/newemployee"
+        component={NewEmployee}
+        isPrivate
+      />
+      <Route store={store} path="/newclient" component={NewClient} isPrivate />
+      <Route store={store} path="/newsale" component={NewSale} isPrivate />
+      <Route
+        store={store}
+        path="/newsession"
+        component={NewSession}
+        isPrivate
+      />
 
       <Route path="/" component={() => <h1>404</h1>} />
     </Switch>
   );
 }
+
+Routes.propTypes = {
+  store: PropTypes.oneOfType([PropTypes.any, PropTypes.func]).isRequired,
+};

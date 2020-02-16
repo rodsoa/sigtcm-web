@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import { darken, lighten } from 'polished';
 import { calculateMargin } from '~/styles/utils';
 
 const bgColorButton = ({ ...props }) => {
   if (props.whiteButton) {
-    return props.disabled ? darken('#fff') : '#fff';
+    return '#fff';
   }
-  return props.disabled ? lighten('#444') : '#444';
+  return '#444';
 };
 
 const defineColorText = ({ ...props }) => {
@@ -18,6 +17,8 @@ const defineColorText = ({ ...props }) => {
 
 export const TCMButton = styled.button(({ ...props }) => ({
   backgroundColor: bgColorButton(props),
+  opacity: props.disabled ? 0.5 : 1,
+  cursor: props.disabled ? 'default' : 'pointer',
   paddingVertical: props.noPadding ? 0 : props.pad || 10,
   borderRadius: props.bdRadius !== 4 ? props.bdRadius : 0,
   height: props.height || 44,

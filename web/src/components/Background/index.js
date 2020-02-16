@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/forbid-prop-types */
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
-export default function Background({ children, mTop }) {
+function Background({ children, mTop }) {
   return <Container style={{ marginTop: mTop }}>{children}</Container>;
 }
 
@@ -17,3 +17,5 @@ Background.propTypes = {
 Background.defaultProps = {
   mTop: 0,
 };
+
+export default memo(Background);

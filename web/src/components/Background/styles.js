@@ -11,4 +11,16 @@ export const Container = styled.div`
   padding: 32px 16px;
   top: 0;
   bottom: 0;
+
+  animation-name: background;
+  animation-duration: 1000ms;
+
+  @keyframes background {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `;

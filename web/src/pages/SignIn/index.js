@@ -1,10 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
+import React from 'react';
 import { Form, Input } from '@rocketseat/unform';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
-import history from '~/services/history';
+import { signInRequest } from '~/store/modules/auth/actions';
 
 import { Container, MainLogin } from './styles';
 import Background from '~/components/Background';
@@ -21,17 +22,18 @@ const schema = Yup.object().shape({
 });
 
 export default function SignIn() {
-  const [loading, setLoading] = useState(false);
-  const handleClick = () => {
-    history.push(`/dashboard`);
-  };
+  const dispatch = useDispatch();
+  const loading = useSelector(state => state.auth.loading);
+  function handleSubmit({ email, password }) {
+    dispatch(signInRequest(email, password));
+  }
 
   const renderLogin = () => (
     <Container>
       <TCMView mVertical={32} display="flex">
         <img style={{ height: 180 }} src={logo} />
       </TCMView>
-      <Form schema={schema} onSubmit={handleClick}>
+      <Form schema={schema} onSubmit={handleSubmit}>
         <MainLogin>
           <TCMView width="100%" display="flex" column>
             <Input name="email" type="email" placeholder="Login...." />

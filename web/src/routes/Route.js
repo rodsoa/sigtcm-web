@@ -3,9 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
-// import { store } from '~/store';
-
 export default function RouteWrapper({
+  store,
   component: Component,
   isPrivate,
   ...rest
@@ -20,24 +19,14 @@ export default function RouteWrapper({
     return <Redirect to="/dashboard" />;
   }
 
-  const Layout = signed ? DefaultLayout : AuthLayout;
-
-  return (
-    <Route
-      {...rest}
-      render={props => (
-        <Layout>
-          <Component {...props} />
-        </Layout>
-      )}
-    />
-  );
+  return <Route {...rest} render={props => <Component {...props} />} />;
 }
 
 RouteWrapper.propTypes = {
   isPrivate: PropTypes.bool,
   component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
     .isRequired,
+  store: PropTypes.oneOfType([PropTypes.any, PropTypes.func]).isRequired,
 };
 
 RouteWrapper.defaultProps = {

@@ -6,12 +6,19 @@ import Background from '~/components/Background';
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
 import { TCMView } from '~/styles';
+import history from '~/services/history';
 
 export default function Service() {
+  const handleToNewSale = () => {
+    history.push('/newsale');
+  };
+  const handleToNewSession = () => {
+    history.push('/newsession');
+  };
   return (
     <Background>
       <Shadow>
-        <Header title="Menu Principal" />
+        <Header title="Atendimento" />
         <Container>
           <div className="rowTwoButtons">
             <Button
@@ -19,6 +26,7 @@ export default function Service() {
               title="Nova Venda"
               height={100}
               width="50%"
+              onClick={handleToNewSale}
               // style={{ margin: 16, height: 100, width: '100%', borderWidth: 0 }}
             />
             <Button
@@ -26,6 +34,7 @@ export default function Service() {
               title="Nova Sessão"
               height={100}
               width="50%"
+              onClick={handleToNewSession}
               // style={{ margin: 16, height: 100, width: '100%', borderWidth: 0 }}
             />
           </div>

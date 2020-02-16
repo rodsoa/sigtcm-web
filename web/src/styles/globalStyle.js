@@ -25,6 +25,12 @@ export default createGlobalStyle`
     overflow: auto;
     width: 100%;
     height: 100%;
+    animation-name: root;
+    animation-duration: 1s;
+  }
+  @keyframes root {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
   }
 
   body {
