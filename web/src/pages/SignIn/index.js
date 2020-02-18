@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { signInRequest } from '~/store/modules/auth/actions';
+import history from '~/services/history';
 
 import { Container, MainLogin } from './styles';
 import Background from '~/components/Background';
@@ -26,6 +27,7 @@ export default function SignIn() {
   const loading = useSelector(state => state.auth.loading);
   function handleSubmit({ email, password }) {
     dispatch(signInRequest(email, password));
+    history.push('/dashboard');
   }
 
   const renderLogin = () => (
