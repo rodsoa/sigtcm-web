@@ -33,13 +33,14 @@ export const Container = styled.div`
         height: 40px;
         background: #999;
         border-radius: 20px;
-        padding-bottom: 14px;
       }
     }
 
     .listDropDow {
       width: 100%;
       margin: 4px 0;
+      animation-name: ${props => (props.showList ? 'drop' : 'up')};
+      animation-duration: 1.5s;
       ul {
         padding: 8px 16px;
         width: 100%;
@@ -55,6 +56,27 @@ export const Container = styled.div`
         li:nth-last-of-type(1) {
           border-bottom: none;
         }
+      }
+    }
+
+    @keyframes drop {
+      0% {
+        height: 0;
+        opacity: 0;
+      }
+      100% {
+        height: 100px;
+        opacity: 1;
+      }
+    }
+    @keyframes up {
+      0% {
+        height: 100px;
+        opacity: 1;
+      }
+      100% {
+        height: 0;
+        opacity: 0;
       }
     }
   }

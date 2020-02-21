@@ -10,42 +10,72 @@ import { TCMView } from '~/styles';
 
 export default function SignUp() {
   const [profile, setProfile] = useState('');
+  const [showList, setShowList] = useState(false);
+  const [animateDrop, setAnimateDrop] = useState(false);
 
   const handleSelectProfile = value => {
     console.log('OIA EU AQUI');
     setProfile(value);
   };
 
+  const handleDropDow = () => {
+    if (showList) {
+      setAnimateDrop(false);
+      setTimeout(() => {
+        setShowList(false);
+      }, 1400);
+    } else {
+      setShowList(true);
+      setAnimateDrop(true);
+    }
+  };
+
+  const renderListDropDown = () => (
+    <div className="listDropDow">
+      <ul>
+        <li>
+          <button onClick={() => handleSelectProfile('TCM')} type="button">
+            Admin TCM
+          </button>
+        </li>
+        <li>
+          <button onClick={() => handleSelectProfile('Matriz')} type="button">
+            Admin Matriz{' '}
+          </button>
+        </li>
+        <li>
+          <button onClick={() => handleSelectProfile('Unit')} type="button">
+            Admin Unidade
+          </button>
+        </li>
+      </ul>
+    </div>
+  );
+
   const renderDropDownSelect = () => (
     <div className="dropdow">
-      <button type="button">
+      <button type="button" onClick={handleDropDow}>
         Perfil{' '}
-        <div>
-          <i
-            className="fa fa-sort-desc"
-            style={{ fontSize: 40, textShadow: 1, color: '#fff' }}
-          />
+        <div style={{ paddingBottom: !showList ? 14 : 0 }}>
+          {!showList ? (
+            <i
+              className="fa fa-sort-desc"
+              style={{ fontSize: 40, textShadow: 1, color: '#fff' }}
+            />
+          ) : (
+            <i
+              className="fa fa-sort-up"
+              style={{
+                fontSize: 40,
+                textShadow: 1,
+                color: '#fff',
+                marginTop: 16,
+              }}
+            />
+          )}
         </div>
       </button>
-      <div className="listDropDow">
-        <ul>
-          <li>
-            <button onClick={() => handleSelectProfile('TCM')} type="button">
-              Admin TCM
-            </button>
-          </li>
-          <li>
-            <button onClick={() => handleSelectProfile('Matriz')} type="button">
-              Admin Matriz{' '}
-            </button>
-          </li>
-          <li>
-            <button onClick={() => handleSelectProfile('Unit')} type="button">
-              Admin Unidade
-            </button>
-          </li>
-        </ul>
-      </div>
+      {!!showList && renderListDropDown()}
     </div>
   );
 
@@ -67,7 +97,7 @@ export default function SignUp() {
     <Background>
       <Shadow>
         <Header title="Novo Usuário" />
-        <Container>
+        <Container showList={animateDrop}>
           {!profile && renderDropDownSelect()}
           {profile && renderFormDataUser()}
         </Container>
