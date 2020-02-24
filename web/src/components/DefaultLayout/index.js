@@ -28,6 +28,11 @@ export default function DefaultLayout({
         <Header title={headerTitle} />
         <Container>{children}</Container>
         <Footer>
+          {footerButtonTitle && (
+            <TCMView mVertical={8} width="100%">
+              <Button title={footerButtonTitle} onClick={footerButtonAction} />
+            </TCMView>
+          )}
           <TCMView
             display="flex"
             width="100%"
@@ -35,9 +40,6 @@ export default function DefaultLayout({
             align="center"
             justify="space-between"
           >
-            {footerButtonTitle && (
-              <Button title={footerButtonTitle} onClick={footerButtonAction} />
-            )}
             <Link to={footerLeftLink}>{footerLeftTitle}</Link>
             {/* <Link to={footerLeftLink}>Trocar de usuário</Link> */}
             <Link to={footerCenterLink}>{footerCenterTitle}</Link>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
-import { Form, Input } from '@rocketseat/unform';
 import { Container, Shadow } from './styles';
 import Button from '~/components/Button';
 import Background from '~/components/Background';

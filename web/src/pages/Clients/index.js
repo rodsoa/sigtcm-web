@@ -1,13 +1,9 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
-import { Container, Shadow } from './styles';
+import { Container } from './styles';
 import Button from '~/components/Button';
-import Background from '~/components/Background';
-import Header from '~/components/Header';
-import Footer from '~/components/Footer';
-import { TCMView } from '~/styles';
+import DefaultLayout from '~/components/DefaultLayout';
 import history from '~/services/history';
 
 export default function Clients() {
@@ -67,27 +63,18 @@ export default function Clients() {
   );
 
   return (
-    <Background>
-      <Shadow>
-        <Header title="Clientes" />
-        <Container>
-          {renderButtonAdd()}
-          {renderSearch()}
-          {renderTableTreatments()}
-        </Container>
-        <Footer>
-          <TCMView
-            display="flex"
-            width="100%"
-            row
-            align="center"
-            justify="space-between"
-          >
-            <Link to="/dashboard">Voltar</Link>
-            <Link to="/">Sair</Link>
-          </TCMView>
-        </Footer>
-      </Shadow>
-    </Background>
+    <DefaultLayout
+      headerTitle="Clientes"
+      footerLeftTitle="Voltar"
+      footerLeftLink="/dashboard"
+      footerRightTitle="Sair"
+      footerRightLink="/"
+    >
+      <Container>
+        {renderButtonAdd()}
+        {renderSearch()}
+        {renderTableTreatments()}
+      </Container>
+    </DefaultLayout>
   );
 }

@@ -8,11 +8,6 @@ export const Container = styled.div`
   justify-content: center;
   width: 100%;
   background-color: #98c0e2;
-  padding: 64px;
-
-  @media (max-width: 900px) {
-    padding: 32px;
-  }
 
   div.renderCod {
     width: 90%;

@@ -1,14 +1,11 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
-import { Container, Shadow } from './styles';
+import { Container } from './styles';
 import Button from '~/components/Button';
-import Background from '~/components/Background';
-import Header from '~/components/Header';
-import Footer from '~/components/Footer';
-import { TCMView } from '~/styles';
+
 import history from '~/services/history';
+import DefaultLayout from '~/components/DefaultLayout';
 
 export default function Matrix() {
   const addNewTreatment = () => {
@@ -89,27 +86,18 @@ export default function Matrix() {
   );
 
   return (
-    <Background>
-      <Shadow>
-        <Header title="Matriz" />
-        <Container>
-          {renderButtons()}
-          {renderSearch()}
-          {renderTableTreatments()}
-        </Container>
-        <Footer>
-          <TCMView
-            display="flex"
-            width="100%"
-            row
-            align="center"
-            justify="space-between"
-          >
-            <Link to="/dashboard">Voltar</Link>
-            <Link to="/">Sair</Link>
-          </TCMView>
-        </Footer>
-      </Shadow>
-    </Background>
+    <DefaultLayout
+      headerTitle="Matriz"
+      footerLeftTitle="Voltar"
+      footerLeftLink="/dashboard"
+      footerRightTitle="Sair"
+      footerRightLink="/"
+    >
+      <Container>
+        {renderButtons()}
+        {renderSearch()}
+        {renderTableTreatments()}
+      </Container>
+    </DefaultLayout>
   );
 }

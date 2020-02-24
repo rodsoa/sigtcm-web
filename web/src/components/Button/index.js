@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { TCMButton } from '~/styles/buttons';
+import { Container } from './styles';
 
 export default function Button({
   loading,
@@ -21,10 +22,12 @@ export default function Button({
       disabled={isDisabled}
       type={type}
     >
-      {loading && (
-        <i className="fa fa-refresh fa-spin" style={{ marginRight: '5px' }} />
-      )}
-      <span>{title}</span>
+      <Container>
+        {loading && (
+          <i className="fa fa-refresh fa-spin" style={{ marginRight: '5px' }} />
+        )}
+        <span className="titleButton">{title}</span>
+      </Container>
     </TCMButton>
   );
 }
@@ -45,6 +48,6 @@ Button.defaultProps = {
   title: '',
   disabled: false,
   onClick: () => {},
-  height: 44,
+  height: 64,
   type: 'button',
 };

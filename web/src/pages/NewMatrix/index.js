@@ -2,16 +2,11 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
-import { Container, Shadow } from './styles';
-import Button from '~/components/Button';
-import Background from '~/components/Background';
-import Header from '~/components/Header';
-import Footer from '~/components/Footer';
+import { Container } from './styles';
 import { TCMView } from '~/styles';
+import DefaultLayout from '~/components/DefaultLayout';
 
 export default function NewMatrix() {
-  const renderButtonAdd = () => <Button height={64} title="Adicionar +" />;
-
   const renderCod = () => (
     <div className="renderCod">
       <TCMView
@@ -93,38 +88,20 @@ export default function NewMatrix() {
   );
 
   return (
-    <Background>
-      <Shadow>
-        <Header title="Nova Matriz" />
-        <Container>
-          {renderCod()}
-          {renderInputs()}
-          {renderTableTreatments()}
-        </Container>
-        <Footer>
-          <TCMView
-            padVertical={8}
-            display="flex"
-            width="100%"
-            row
-            align="center"
-            padHorizontal={32}
-          >
-            {renderButtonAdd()}
-          </TCMView>
-          <TCMView
-            display="flex"
-            width="100%"
-            row
-            align="center"
-            justify="space-between"
-            padHorizontal={32}
-          >
-            <Link to="/dashboard">Voltar</Link>
-            <Link to="/">Sair</Link>
-          </TCMView>
-        </Footer>
-      </Shadow>
-    </Background>
+    <DefaultLayout
+      headerTitle="Nova Matriz"
+      footerButtonTitle="Adicionar +"
+      footerButtonAction={() => {}}
+      footerLeftTitle="Voltar"
+      footerLeftLink="/dashboard"
+      footerRightTitle="Sair"
+      footerRightLink="/"
+    >
+      <Container>
+        {renderCod()}
+        {renderInputs()}
+        {renderTableTreatments()}
+      </Container>
+    </DefaultLayout>
   );
 }
